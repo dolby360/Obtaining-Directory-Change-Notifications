@@ -28,9 +28,10 @@ public:
 		watch->stopWatching();
 	}
 
-	[PermissionSet(SecurityAction::Demand, Name = "FullTrust")]
+	//[PermissionSet(SecurityAction::Demand, Name = "FullTrust")]
 	void static execute(){
-		Watcher^ w = gcnew Watcher("C:\\Users\\dolev\\Desktop\\fol1\\file1.txt");
+		printf("execute\n");
+		Watcher^ w = gcnew Watcher("C:\\Users\\dolev\\Desktop\\fol1");
 		Executor::getInstance()->setWtcher(w);
 		w->run();
 	}
