@@ -7,13 +7,28 @@
 
 #include "Watcher.h"
 #include "Executor.h"
+
+char *batFile;
+
 void main(){
-	
-	System::Threading::Thread^ oThread = gcnew System::Threading::Thread(
+	batFile = (char*)malloc(sizeof(char)*64);
+	memset(batFile,0,sizeof(batFile));
+
+	System::Threading::Thread^ executingThread = gcnew System::Threading::Thread(
 		gcnew System::Threading::ThreadStart(&Executor::execute));
 
-	oThread->Start();
+	System::Threading::Thread^ exit = gcnew System::Threading::Thread(
+		gcnew System::Threading::ThreadStart(&Executor::getExitFromUser));
 
-	printf("Initial commit\n");
+	//TODO: Realese it after you solved select function issue.  
+	//exit->Start();
+	executingThread->Start();
+	
+	executingThread->Join();
+
+	System::Threading::Thread::Sleep(20);
+	printf("Enter somthing if you want to exit\n");
 	getch();
+	executingThread->Abort();
+	delete batFile;
 }
