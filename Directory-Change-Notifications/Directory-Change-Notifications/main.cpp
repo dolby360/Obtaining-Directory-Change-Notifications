@@ -22,7 +22,7 @@ void main(){
 	//TODO: Realese it after you solved select function issue.  
 	//exit->Start();
 	executingThread->Start();
-	
+
 	executingThread->Join();
 
 	System::Threading::Thread::Sleep(20);

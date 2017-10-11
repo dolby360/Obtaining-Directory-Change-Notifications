@@ -14,13 +14,13 @@ using namespace System::Diagnostics;
 using namespace System::IO;
 
 extern char *batFile;
- 
+
 public ref class Watcher{
 private:
 	System::String^ path;
 	bool killThisThread;
 	static int timeToSleepIn_ms = 5000;
-	
+
 private:
 	// Define the event handlers.
 	static void OnChanged(Object^ /*source*/, FileSystemEventArgs^ e){
@@ -32,7 +32,7 @@ private:
 			printf("Error in system()\n");
 		}
 	}
-	
+
 	//void OnRenamed(Object^ /*source*/, RenamedEventArgs^ e){
 	//	// Specify what is done when a file is renamed.
 	//	printf("File: %s renamed to %s", e->OldFullPath, e->FullPath);
