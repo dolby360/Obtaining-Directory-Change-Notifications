@@ -20,6 +20,7 @@ private:
 	System::String^ path;
 	bool killThisThread;
 	static int timeToSleepIn_ms = 5000;
+	
 private:
 	// Define the event handlers.
 	static void OnChanged(Object^ /*source*/, FileSystemEventArgs^ e){
