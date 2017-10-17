@@ -22,7 +22,7 @@ private:
 
 private:
 	// Define the event handlers.
-	static void OnChanged(Object^ /*source*/, FileSystemEventArgs^ e){
+	static void OnChanged(Object^ source, FileSystemEventArgs^ e){
 		// Specify what is done when a file is changed, created, or deleted.
 		//printf("File: %s %s", e->FullPath, e->ChangeType);
 		System::Threading::Thread::Sleep(5000);
